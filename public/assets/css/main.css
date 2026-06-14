@@ -89,7 +89,7 @@ body {
 
 /* NAVIGASI MOBILE DROPDOWN */
 .mobile-nav {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 70px;
@@ -102,6 +102,7 @@ body {
   z-index: 1001;
 
 }
+.mobile-nav.active { display: flex; }
 
 .mobile-nav a {
   color: white;
