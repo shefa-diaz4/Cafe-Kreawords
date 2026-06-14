@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Order - Cafe Informatika</title>
+  <link rel="stylesheet" href="assets/css/order.css">
+</head>
+<body>
+  <header class="header">
+    <button id="backBtn" class="icon-btn" aria-label="Kembali">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <img src="assets/img/KREAWORDS BULET.png" class="logo" alt="Logo Cafe Informatika">
+
+    <button id="helpBtn" class="icon-btn" aria-label="Bantuan">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM11 17h2v-2h-2v2zm1-12a4 4 0 0 0-4 4h2a2 2 0 1 1 2 2v1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Help modal (hidden by default) -->
+  <div id="helpModal" class="help-modal" aria-hidden="true">
+    <div class="help-content">
+      <h4>Bantuan</h4>
+      <p>Masukkan nomor meja lalu tekan "Lanjut" untuk memilih metode pembayaran. Jika butuh bantuan silakan hubungi staf.</p>
+      <div style="text-align:right;margin-top:12px">
+        <button id="closeHelp" class="btn">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container order-page">
+    <h2>Order & Checkout</h2>
+
+    <section class="table-section">
+      <label for="tableNumber">Nomor Meja</label>
+      <div class="input-inline">
+        <input id="tableNumber" type="text" placeholder="Masukkan nomor meja" />
+        <button id="btnTable" class="btn">Lanjut</button>
+      </div>
+    </section>
+
+    <section id="paymentSection" class="payment-section">
+      <h3>Pilih Metode Pembayaran</h3>
+      <div class="pay-options" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+        <button class="btn pay" data-method="bca">Bank BCA</button>
+        <button class="btn pay" data-method="mandiri">Bank Mandiri</button>
+        <button class="btn pay" data-method="qris">QRIS</button>
+        <button class="btn pay" data-method="crypto">Cryptocurrency</button>
+      </div>
+
+      <div id="paymentInfo" class="payment-info" style="margin-top:18px"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Cafe Informatika</p>
+  </footer>
+
+  <script src="assets/js/order.js"></script>
+</body>
+</html>

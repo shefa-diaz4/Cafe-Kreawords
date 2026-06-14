@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body {
+  background: url('/public/assets/img/Background.png') no-repeat center center/cover;
+  background-attachment: fixed;
+}
+
+/* =============================== */
+/* HEADER & NAVIGATION */
+/* =============================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f5d19c;
+  transform: scale(1.05);
+}
+
+/* TOGGLE MENU BUTTON (untuk mobile) */
+.menu-btn {
+  background: none;
+  border: none;
+  display: none;
+  cursor: pointer;
+}
+
+.menu-btn svg path {
+  stroke: #fff;
+}
+
+/* NAVIGASI MOBILE DROPDOWN */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f3bb68;
+  animation: fadeInDown 0.4s ease forwards;
+  z-index: 1001;
+
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  margin-bottom: 10px;
+
+}
+.mobile-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 12px;
+
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .logo-text {
+    display: none; /* Hilangkan teks di mobile */
+  }
+
+  .nav-links {
+    display: none; /* Sembunyikan menu utama */
+  }
+
+  .menu-btn {
+    display: block; /* Tampilkan tombol toggle */
+    padding: 10px;
+    color: black;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =============================== */
+/* HERO SECTION */
+/* =============================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1.5s ease-out;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.hero h1 span {
+  color: #f5d19c;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.btn {
+  background: #f5d19c;
+  color: #333;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.05);
+  background: #fff;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid #f5d19c;
+  color: #f5d19c;
+}
+.btn-outline:hover {
+  background: #f5d19c;
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================== */
+/* MENU SECTION (untuk index) */
+/* =============================== */
+.section-menu {
+  padding: 80px 60px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+}
+.menu-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 40px;
+}
+.menu-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.menu-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(245,209,156,0.3);
+}
+.menu-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* =============================== */
+/* FOOTER */
+/* =============================== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* =============================== */
+/* LAZY LOAD EFFECT */
+/* =============================== */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+img[data-loaded="true"] {
+  opacity: 1;
+}
+
+/* Efek ripple pada tombol */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.6);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

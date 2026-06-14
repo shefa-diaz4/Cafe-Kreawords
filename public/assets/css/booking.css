@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Global */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8f6f4;
+  color: #222;
+  margin: 0;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+body {
+  background: url('/public/assets/img/Background.png') no-repeat center center/cover;
+  background-attachment: fixed;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  background: rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  width: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover { 
+  transform: scale(1.1); 
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  margin-left: auto; /* Push links to right */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f5d19c;
+  transform: scale(1.05);
+}
+
+/* TOGGLE MENU BUTTON (untuk mobile) */
+.menu-btn {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-btn svg path {
+  stroke: white;
+}
+
+/* NAVIGASI MOBILE DROPDOWN */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  right: -250px; /* Start offscreen */
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f3bb68;
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.mobile-nav.show {
+  right: 20px; /* Slide in */
+}
+
+.mobile-nav a {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  margin-bottom: 8px;
+
+}
+.mobile-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 12px;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .logo-text {
+    display: none; /* Hilangkan teks di mobile */
+  }
+
+  .nav-links {
+    display: none; /* Sembunyikan menu utama */
+  }
+
+  .menu-btn {
+    display: block; /* Tampilkan tombol toggle */
+    padding: 10px;
+    color: black;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+}
+.header .logo {
+  width: 60px;
+  transition: transform 0.3s ease;
+}
+.header .logo:hover {
+  transform: scale(1.1);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+/* Booking Section */
+.booking-page h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #4f382c;
+}
+.booking-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.booking-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5c4033;
+  font-weight: 500;
+}
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.booking-form button.btn {
+  width: 100%;
+  background: #4f382c;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.booking-form button.btn:hover {
+  background: #8b5e45;
+  transform: translateY(-2px);
+}
+
+/* Booking Result */
+.booking-result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1em;
+  color: #5c4033;
+}
+.booking-result.success {
+  color: #27ae60;
+}
+
+/* Table */
+#bookingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+#bookingTable th,
+#bookingTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+#bookingTable th {
+  background: #4f382c;
+  color: #fff;
+}
+.btn-clear {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #8b5e45;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-clear:hover {
+  background: #a26e53;
+}
+
+/* Lokasi */
+.lokasi-section {
+  margin-top: 60px;
+  text-align: center;
+}
+.lokasi-section h3 {
+  color: #4f382c;
+  margin-bottom: 20px;
+}
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+.info-kontak {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #5c4033;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #4f382c;
+  color: #fff;
+  padding: 15px 0;
+  margin-top: 50px;
+  font-size: 0.9em;
+}
+
+/* Toast Notification */
+.toast {
+  visibility: hidden;
+  min-width: 260px;
+  background: #4f382c;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 14px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 60px;
+}
+.toast.success {
+  background: #27ae60;
+}
+.toast.error {
+  background: #e74c3c;
+}
+.toast.info {
+  background: #3498db;
+}
+/* Responsive */
+/* Update responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide desktop nav */
+  }
+  
+  .menu-btn {
+    display: block; /* Show toggle only on mobile */
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none; /* Hide mobile nav on desktop */
+  }
+  
+  .nav-links {
+    display: flex; /* Show desktop nav */
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .booking-form button.btn {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+}
+

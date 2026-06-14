@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('/public/assets/img/Background.png') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #222;
+}
+
+/* header layout for minimal (Back - Logo - Help) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  background: rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo { width: 60px; transition: transform .25s ease; }
+.logo:hover { transform: scale(1.06); }
+
+/* icon style for back/help */
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  transition: background .18s ease, transform .12s ease;
+}
+.icon-btn:hover { background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+.icon-btn svg path { stroke: #fff; }
+
+/* Layout container */
+.container.order-page {
+  background: linear-gradient(180deg,#fffaf3,#fff8f0);
+  max-width: 900px;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  align-items: center;
+}
+
+/* Inline input for table number */
+.table-section { margin-top: 6px; text-align: center; }
+.input-inline { display:flex;gap:10px;justify-content:center;align-items:center;margin-top:10px; }
+.input-inline input { padding:10px 12px;border-radius:8px;border:1px solid rgba(74,44,42,0.08);min-width:160px; }
+.btn { background:#6f4e37;color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer; }
+.btn:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(111,78,55,0.08); }
+
+/* Payment info reveal animation */
+.payment-info {
+  background: #fff3e0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-top: 18px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .36s cubic-bezier(.2,.9,.2,1), transform .36s cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+/* Visible state */
+.payment-info.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+/* Bank detail card */
+.bank-card {
+  display: inline-block;
+  background: linear-gradient(180deg,#fff,#fff7ec);
+  border: 1px solid rgba(111,78,55,0.08);
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(111,78,55,0.06);
+  margin-top: 8px;
+  text-align: left;
+  min-width: 220px;
+}
+
+/* small highlight pulse when shown */
+.bank-card.pulse {
+  animation: pulseIn .48s cubic-bezier(.2,.9,.2,1);
+}
+
+@keyframes pulseIn {
+  0% { transform: scale(.98); opacity: .6; }
+  60% { transform: scale(1.02); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Help modal */
+.help-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+  z-index: 2000;
+}
+.help-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.help-content {
+  background: linear-gradient(180deg,#fff,#fff8f0);
+  padding: 18px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: calc(100% - 40px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  color: #5c4033;
+  transform: translateY(6px);
+  transition: transform .24s cubic-bezier(.2,.9,.2,1);
+}
+.help-modal[aria-hidden="false"] .help-content { transform: translateY(0); }
+
+/* ensure no nav links visible on mobile/desktop for order page */
+.nav-links { display: none !important; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container.order-page { margin: 18px 12px; padding: 20px; }
+  .input-inline { flex-direction:column; gap:8px; }
+  .input-inline input { width:100%; max-width:320px; }
+  .pay-options { flex-direction:column; }
+}
+
+@media (min-width: 769px) {
+  .pay-options { justify-content:center; }
+}
+
+/* ...existing code... */
